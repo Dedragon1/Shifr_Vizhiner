@@ -5,6 +5,8 @@ using namespace std;
 int ascii_cod(char x)
 {
     int a = static_cast<int>(x);
+    b
+    //int a = int(x);
     return a;
 }
 
