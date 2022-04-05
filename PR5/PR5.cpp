@@ -2,12 +2,11 @@
 #include <string>
 using namespace std;
 
-//фасйишцщвтчцшуазчщяфлцтвчызсфцшгуачцмвм
-//sdfsdfsdf
+
 int ascii_cod(char x)
 {
-    int a = static_cast<int>(x);
-    //int a = int(x);
+    //int a = static_cast<int>(x);
+    int a = int(x);
     return a;
 }
 
