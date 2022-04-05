@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-//Шестй коммит
+//Седьмой коммит
 
 int ascii_cod(char x)
 {
