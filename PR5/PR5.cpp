@@ -2,24 +2,17 @@
 #include <string>
 using namespace std;
 
-int ascii_cod(char x)
+int ascii_cod(char x) // Метод воззвращающий ASCII код символа
 {
     int a = static_cast<int>(x);
-    b
-    //int a = int(x);
     return a;
 }
-
-//char cMyCharacter = 'A';
-//int iMyAsciiValue = static_cast<int>(cMyCharacter);
-//int asciiVal = 65;
-//char asciiChar = static_cast<char>(asciiVal);
 
 int main()
 {
     setlocale(LC_ALL, "Rus");
-    // Наш Алфавит и его ASCII код
-    string s; //= "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+    // Наш Алфавит и его ASCII код - Для удобства разработки
+    string s;
     for (char ch = 'А'; ch <= 'Я'; ch++)
     {
         s.push_back(ch);
@@ -28,37 +21,26 @@ int main()
     
     cout << '\n';
 
-    string text = "СУПЕРПРОГРАММА";
-    string key = "МАША";
+    string text = "СУПЕРПРОГРАММА"; // Исходный текст, который мы хотим зашифровать
+    string key = "МАША"; // Ключ для шифрования
 
     //---------------------------ЗАШИФРОВКА-----------------------------
     
-    string shifr = "";
+    string shifr = ""; // Строка для зашифрованного текста
+    char с; // Зашифрованный символ
     for (int r = 0;r < text.size();r++)
     { 
-        int t = ascii_cod(text[r]); // Код одного из символа-текста
-        int k = ascii_cod(key[r % key.size()]); // Код одного из символов ключа
-        int g = (k - 'А' + 1) + t; // Код символа-зашифрованного
-        char с;
+        int t = ascii_cod(text[r]); // Код символа исходного текста
+        int k = ascii_cod(key[r % key.size()]); // Код символа ключа
+        int g = (k - 'А' + 1) + t; // Код зашифрованого символа
+            
+        с = (g > -33) ? static_cast<char>(g - 32) : static_cast<char>(g); // Условие того, что мы не выйдем за границы алфавита
 
-        с = (g > -33) ? static_cast<char>(g - 32) : static_cast<char>(g);
-
-        //if (g > - 33)
-        //{
-        //    с = static_cast<char>(g-32); // Символ-зашифрованный
-        //   
-        //}
-        //else
-        //{
-        //     с = static_cast<char>(g); // Символ-зашифрованны
-        //    
-        //}   
-        cout << "Из " << text[r] << " через " << key[r % key.size()] << " = " << с << '\n';
-        shifr = shifr + с;
-        
+        cout << "Из " << text[r] << " через " << key[r % key.size()] << " = " << с << '\n'; // Просто вывод
+        shifr = shifr + с; // Добавляем новый символ к зашифрованной строке
     }
 
-    //Красивый вывод
+    // Красивый вывод
     cout << "\n" << text << " - исходный текст" << "\n" ;
     for (int i = 0; i < text.size(); i++)
         cout << key[i % key.size()];
@@ -70,25 +52,15 @@ int main()
 
     //---------------------------РАСШИФРОВКА-----------------------------
     
-    string ras = "";
+    string ras = ""; // Строка для расшифрованного текста
     for (int r = 0;r < shifr.size();r++)
     {
-        int s = ascii_cod(shifr[r]);// Код одного из символа зашифрованного текста
-        int k = ascii_cod(key[r % key.size()]); // Код одного из символов ключа
-        int g = s - k - 65; // Код символа-изначального
+        int s = ascii_cod(shifr[r]); // Код зашифрованого символа
+        int k = ascii_cod(key[r % key.size()]); // Код символа ключа
+        int g = s - k - 65; // Код символа исходного текста
 
-        if (g < -64)
-        {
-            char с = static_cast<char>(g + 32); // Символ-зашифрованный
-            ras = ras + с;
-           
-        }
-        else
-        {
-            char с = static_cast<char>(g); // Символ-зашифрованный
-            ras = ras + с;
-            
-        }
+        с = (g < -64) ? static_cast<char>(g + 32) : static_cast<char>(g); // Условие того, что мы не выйдем за границы алфавита
+        ras = ras + с; // Добавляем новый символ к расшифрованной строке
     }
 
     //Красивый вывод
