@@ -16,6 +16,8 @@ int ascii_cod(char x)
 int main()
 {
     setlocale(LC_ALL, "Rus");
+    //setlocale(LC_ALL, "Rus");
+    //setlocale(LC_ALL, "Rus");
     // Наш Алфавит и его ASCII код
     string s; //= "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
     for (char ch = 'А'; ch <= 'Я'; ch++)
