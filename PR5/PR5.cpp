@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-//Седьмой коммит
-
+//фасйишцщвтчцшуазчщяфлцтвчызсфцшгуачцмвм
+//sdfsdfsdf
 int ascii_cod(char x)
 {
     int a = static_cast<int>(x);
