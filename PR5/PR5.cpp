@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-//ТЕЛЕПУЗИКИ
+//Шестй коммит
 
 int ascii_cod(char x)
 {
