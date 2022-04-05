@@ -38,22 +38,23 @@ int main()
     { 
         int t = ascii_cod(text[r]); // Код одного из символа-текста
         int k = ascii_cod(key[r % key.size()]); // Код одного из символов ключа
-        int g = (k + 65) + t; // Код символа-зашифрованного
+        int g = (k - 'А' + 1) + t; // Код символа-зашифрованного
+        char с;
 
-        if (g > - 33)
-        {
-            char с = static_cast<char>(g-32); // Символ-зашифрованный
-            cout << "Из " << text[r] << " через " << key[r % key.size()] << " = " << с << '\n';
-            shifr = shifr + с;
-           
-        }
-        else
-        {
-            char с = static_cast<char>(g); // Символ-зашифрованный
-            cout << "Из " << text[r] << " через " << key[r % key.size()] << " = " << с << '\n';
-            shifr = shifr + с;
-            
-        }   
+        с = (g > -33) ? static_cast<char>(g - 32) : static_cast<char>(g);
+
+        //if (g > - 33)
+        //{
+        //    с = static_cast<char>(g-32); // Символ-зашифрованный
+        //   
+        //}
+        //else
+        //{
+        //     с = static_cast<char>(g); // Символ-зашифрованны
+        //    
+        //}   
+        cout << "Из " << text[r] << " через " << key[r % key.size()] << " = " << с << '\n';
+        shifr = shifr + с;
         
     }
 
